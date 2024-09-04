@@ -1,0 +1,82 @@
+/* Estilo para los mensajes enviados y recibidos */
+.enviado, .recibido {
+    min-width: 52%;
+    max-width: 80%;
+    border-radius: 8px;
+    text-align: left;
+    padding: 5px;
+    color: white;
+}
+
+.enviado {
+    float: right;
+    background-color: rgb(15, 18, 64);
+}
+
+.recibido {
+    float: left;
+    background-color: rgb(45, 57, 168);
+}
+
+/* Estilo para el contenedor de mensajes */
+.mensajes {
+    overflow-y: auto; /* Mostrar barra de desplazamiento solo cuando sea necesario */
+    min-height: 200px;
+    max-height: 300px; /* Ajustar según sea necesario */
+    padding: 10px; /* Añadir relleno para mejorar la apariencia */
+}
+
+/* Estilo para el ícono del chat flotante */
+.chatIconContainer {
+    position: fixed;
+    right: 0.5em;
+    bottom: 0.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    padding: 20px; /* Reducido a 20px para mantener el tamaño del ícono */
+    border-radius: 50%;
+    box-shadow: 0 0 10px 2px rgb(71, 71, 71);
+}
+
+.chatIconContainer:hover {
+    transform: scale(1.1);
+}
+
+/* Estilo para el contenedor del chat */
+.cardContainer {
+    position: fixed;
+    right: 20px;
+    bottom: 80px; /* Ajusta la distancia desde el borde inferior */
+    width: 300px;
+    max-height: 80vh;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+}
+
+/* Estilo para el header del contenedor del chat */
+.card-header {
+    position: relative; /* Permite que los elementos posicionados dentro se alineen respecto al header */
+    padding-right: 60px; /* Asegura espacio suficiente para el ícono de cerrar */
+}
+
+/* Estilo para el ícono de cerrar */
+.closeIcon {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.closeIcon:hover {
+    transform: scale(1.1);
+}
+.btn-send{
+    cursor: pointer;
+}

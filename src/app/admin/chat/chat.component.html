@@ -1,0 +1,30 @@
+<!-- Icono del chat flotante -->
+<div class="chatIconContainer" (click)="mostrarChat = true" *ngIf="!mostrarChat">
+    <img src="assets/svg/chatSupport.svg" alt="Chat Support" width="60px">
+</div>
+
+<!-- Contenedor del chat -->
+<div class="card text-center cardContainer" *ngIf="mostrarChat">
+    <div class="card-header">
+        Chat
+        <div class="closeIcon" (click)="mostrarChat = false">
+            <img src="assets/svg/close.svg" width="30px" alt="">
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="mensajes" id="mensajes">
+            <p *ngFor="let item of mensajes" class="msj"
+               [ngClass]="{'enviado': item.emisor === 'franko', 'recibido': item.emisor !== 'franko'}">
+                {{ item.texto }}
+            </p>
+        </div>
+    </div>
+    <div class="card-footer text-muted input-group">
+        <input type="text" class="form-control" placeholder="Ingrese su mensaje" [(ngModel)]="mensajeNuevo" [ngModelOptions]="{standalone: true}" (keydown.enter)="sendMessage()">
+        <div class="input-group-append btn-send">
+            <span class="input-group-text" id="basic-addon2" (click)="sendMessage()">
+                <img src="https://cdn-icons-png.flaticon.com/512/786/786407.png" width="20px" alt="">
+            </span>
+        </div>
+    </div>
+</div>
