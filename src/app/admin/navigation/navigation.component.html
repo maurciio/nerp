@@ -1,1 +1,88 @@
-<p>navigation works!</p>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark custom-navbar-bg">
+    <div class="container-fluid">
+        <a class="navbar-brand" [routerLink]="['/dashboard']">Mi Logo</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <form class="d-flex ms-auto me-3">
+                <input class="form-control me-2" type="search" placeholder="Buscar..." aria-label="Search">
+                <button class="btn btn-outline-light" type="submit">Buscar</button>
+            </form>
+            <ul class="navbar-nav">
+                <!-- Dashboard -->
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="['/dashboard']">Dashboard</a>
+                </li>
+
+                <!-- Producción -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownProduccion" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Producción
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownProduccion">
+                        <li><a class="dropdown-item" [routerLink]="['/produccion/cosechas']">Cosechas</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/produccion/informes']">Informes de Producción</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- Ventas -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVentas" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Ventas
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownVentas">
+                        <li><a class="dropdown-item" [routerLink]="['/ventas/clientes']">Clientes</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/ventas/pedidos']">Pedidos</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/ventas/facturacion']">Facturación</a></li>
+                    </ul>
+                </li>
+
+                <!-- Inventario -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownInventario" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Inventario
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownInventario">
+                        <li><a class="dropdown-item" [routerLink]="['/inventario/productos']">Productos</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/inventario/stock']">Stock</a></li>
+                    </ul>
+                </li>
+
+                <!-- Informes -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownInformes" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Informes
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownInformes">
+                        <li><a class="dropdown-item" [routerLink]="['/informes/financieros']">Financieros</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/informes/produccion']">Producción</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/informes/ventas']">Ventas</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Usuario
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Perfil</a></li>
+                        <li><a class="dropdown-item" href="#">Configuración</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" href="#">Cerrar Sesión</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>

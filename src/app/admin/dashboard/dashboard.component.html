@@ -1,1 +1,195 @@
-<p>dashboard works!</p>
+<app-navigation></app-navigation>
+
+<div class="d-flex flex-column min-vh-100">
+    <main class="flex-grow-1 p-4">
+        <div class="container">
+            <div class="row g-4">
+                <!-- Cards on the Right -->
+                <div class="col-md-4">
+                    <div class="row g-4">
+                        <!-- Suppliers Card -->
+                        <div class="col-12">
+                            <div class="card border-light shadow-sm bg-secondary text-dark">
+                                <div class="card-body">
+                                    <p class="card-text">Proveedores</p>
+                                    <h5 class="card-title">12</h5>
+                                    <div class="text-muted">+3 desde el último mes</div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-light">Agregar Proveedor</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sales Card -->
+                        <div class="col-12">
+                            <div class="card border-light shadow-sm bg-success text-dark">
+                                <div class="card-body">
+                                    <p class="card-text">Ventas</p>
+                                    <h5 class="card-title">$5,329</h5>
+                                    <div class="text-muted">+10% desde el último mes</div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#chartModal">
+                                        Ver Reporte
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Table Card -->
+                <div class="col-md-8">
+                    <div class="card border-light shadow-sm">
+                        <div class="card-header bg-primary text-light">
+                            <h5 class="card-title mb-0">Clientes Activos</h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">Información sobre tus clientes activos.</p>
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Nombre</th>
+                                        <th class="d-none d-sm-table-cell">Empresa</th>
+                                        <th class="d-none d-sm-table-cell">Teléfono</th>
+                                        <th class="d-none d-md-table-cell">Correo</th>
+                                        <th class="text-end">Ventas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Repeat rows as needed -->
+                                    <tr>
+                                        <td>Liam Johnson</td>
+                                        <td class="d-none d-sm-table-cell">Acme Inc</td>
+                                        <td class="d-none d-sm-table-cell">+1 (555) 123-4567</td>
+                                        <td class="d-none d-md-table-cell">liam&#64;acme.com</td>
+                                        <td class="text-end">$250.00</td>
+                                    </tr>
+                                    <!-- Add more rows -->
+                                    <tr>
+                                        <td>Liam Johnson</td>
+                                        <td class="d-none d-sm-table-cell">Acme Inc</td>
+                                        <td class="d-none d-sm-table-cell">+1 (555) 123-4567</td>
+                                        <td class="d-none d-md-table-cell">liam&#64;acme.com</td>
+                                        <td class="text-end">$250.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Liam Johnson</td>
+                                        <td class="d-none d-sm-table-cell">Acme Inc</td>
+                                        <td class="d-none d-sm-table-cell">+1 (555) 123-4567</td>
+                                        <td class="d-none d-md-table-cell">liam&#64;acme.com</td>
+                                        <td class="text-end">$250.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Liam Johnson</td>
+                                        <td class="d-none d-sm-table-cell">Acme Inc</td>
+                                        <td class="d-none d-sm-table-cell">+1 (555) 123-4567</td>
+                                        <td class="d-none d-md-table-cell">liam&#64;acme.com</td>
+                                        <td class="text-end">$250.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Liam Johnson</td>
+                                        <td class="d-none d-sm-table-cell">Acme Inc</td>
+                                        <td class="d-none d-sm-table-cell">+1 (555) 123-4567</td>
+                                        <td class="d-none d-md-table-cell">liam&#64;acme.com</td>
+                                        <td class="text-end">$250.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <!-- Pagination -->
+                            <nav aria-label="Page navigation example">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" [href]="['admin']" tabindex="-1"
+                                            aria-disabled="true">Previous</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" [href]="['admin']">1</a></li>
+                                    <li class="page-item"><a class="page-link" [href]="['admin']">2</a></li>
+                                    <li class="page-item"><a class="page-link" [href]="['admin']">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" [href]="['admin']">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                            <div class="text-muted mt-3">
+                                Mostrando <strong>1-5</strong> de <strong>5</strong> clientes
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Cards below the Table -->
+                <div class="col-md-12 d-none d-md-block">
+                    <div class="row row-cols-1 row-cols-md-3 g-5">
+                        <!-- New Orders Card -->
+                        <div class="col">
+                            <div class="card border-light shadow-sm bg-muted text-dark">
+                                <div class="card-body">
+                                    <p class="card-text">Nuevos Pedidos</p>
+                                    <h5 class="card-title">8</h5>
+                                    <div class="text-muted">+2 desde la semana pasada</div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-light">Nuevo Pedido</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <!-- Monthly Revenue Card -->
+                        <div class="col">
+                            <div class="card border-light shadow-sm bg-success text-dark">
+                                <div class="card-body">
+                                    <p class="card-text">Ingresos Mensuales</p>
+                                    <h5 class="card-title">$15,329</h5>
+                                    <div class="text-muted">+15% desde el último mes</div>
+                                </div>
+                                <div class="card-footer">
+                                    <!-- Botón para abrir el modal -->
+                                    <button class="btn btn-light" data-bs-toggle="modal" data-bs-target="#chartModal">
+                                        Ver Reporte
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pending Orders Card -->
+                        <div class="col">
+                            <div class="card border-light shadow-sm bg-danger text-dark">
+                                <div class="card-body">
+                                    <p class="card-text">Pedidos Pendientes</p>
+                                    <h5 class="card-title">12</h5>
+                                    <div class="text-muted">+4 desde la semana pasada</div>
+                                </div>
+                                <div class="card-footer">
+                                    <button class="btn btn-light">Ver Detalles</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Modal de Bootstrap -->
+<div class="modal fade" id="chartModal" tabindex="-1" aria-labelledby="chartModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="chartModalLabel">Reporte de Ingresos Mensuales</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+            </div>
+            <div class="modal-body">
+                <!-- Aquí se renderiza el componente del gráfico -->
+                <app-chart></app-chart>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-chat></app-chat>

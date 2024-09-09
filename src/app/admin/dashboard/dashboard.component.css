@@ -1,0 +1,197 @@
+/* Establecer fondo y colores generales */
+body, .card, .banner-section, .diferencias-section, .contact-section {
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tarjetas con borde suave y sombra ligera */
+.card {
+    border: none;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+}
+
+/* Sombra más intensa y efecto de escala al pasar el mouse */
+.card:hover {
+    transform: scale(1.01);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* Unificar fondo y color en el header y body de las tarjetas */
+.card-header, .card-body, .banner-section {
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* Personalización para botones */
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004a99;
+}
+
+.btn-light {
+    background-color: #f8f9fa;
+    color: #333;
+    border: 1px solid #dcdcdc;
+}
+
+.btn-light:hover {
+    background-color: #e2e6ea;
+    color: #333;
+}
+
+/* Barra de búsqueda con borde redondeado */
+.search-bar input {
+    border-radius: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid #dcdcdc;
+    padding: 10px;
+}
+
+/* Sección de banner con texto centrado */
+.banner-section {
+    padding: 40px;
+    text-align: center;
+    background-color: #074173;
+    color: #ffffff;
+}
+
+.banner-text h2 {
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.banner-text p {
+    font-size: 1.1rem;
+}
+
+/* Estilos para la sección de contacto */
+.contact-section {
+    padding: 60px 20px;
+    background-color: #f8f9fa;
+}
+
+.contact-section h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.contact-section p {
+    font-size: 1.25rem;
+    color: #6c757d;
+}
+
+.contact-section .form-control {
+    border-radius: 8px;
+    background-color: #ffffff;
+    border: 1px solid #dcdcdc;
+}
+
+.contact-section .btn-primary {
+    font-size: 1.1rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+}
+
+/* Sombra más ligera en la sección de diferencias */
+.diferencias-section .card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ajustes para que todo el contenido sea coherente y agradable visualmente */
+.header {
+    background-color: #074173;
+    color: #ffffff;
+    padding: 20px;
+    text-align: center;
+    font-size: 1.75rem;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+/* Botones transparentes */
+.btn-transparent {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.btn-transparent:hover {
+    background: transparent;
+    box-shadow: none;
+}
+
+/* Fondo más claro para las tarjetas destacadas */
+.card-highlight:hover .card-body {
+    background-color: #f1f3f5;
+    color: #333;
+}
+
+/* Responsive - ajustar para pantallas pequeñas */
+@media (max-width: 768px) {
+    .banner-text h2 {
+        font-size: 1.75rem;
+    }
+
+    .banner-text p {
+        font-size: 1rem;
+    }
+
+    .contact-section h2 {
+        font-size: 2rem;
+    }
+
+    .contact-section p {
+        font-size: 1.1rem;
+    }
+
+    .card-header, .card-body {
+        text-align: center;
+    }
+}
+
+
+
+
+/* Contenedor que envuelve la tabla y las tarjetas */
+.dashboard-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+/* La tabla ocupará todo el espacio disponible a la izquierda */
+.table-section {
+    flex: 3; /* La tabla toma más espacio */
+    margin-right: 20px;
+}
+
+/* Las tarjetas a la derecha */
+.cards-section {
+    flex: 1; /* Las tarjetas ocupan el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Cada tarjeta dentro del contenedor de tarjetas */
+.card {
+    padding: 5px;
+}
+
+/* Asegura que las tarjetas usen toda la altura */
+.cards-section .card {
+    flex: 1;
+}
+
+/* Elimina margen del último elemento */
+.cards-section .card:last-child {
+    margin-bottom: 0;
+}
