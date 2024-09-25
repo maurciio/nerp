@@ -2,3 +2,12 @@
 .custom-navbar-bg {
     background-color: #28a745; /* Verde Bootstrap más suave */
 }
+.bg-hover-success:hover {
+    background-color: #28a745;
+}
+.bg-hover-danger:hover{
+    background-color: #dc3545;
+}
+.offcanvas {
+    z-index: 1055; /* Mayor que el fondo modal */
+}

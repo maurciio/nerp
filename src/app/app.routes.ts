@@ -1,14 +1,13 @@
 import { Routes } from '@angular/router';
-import { ChatComponent } from './admin/chat/chat.component';
 import { SettingsComponent } from './admin/settings/settings.component';
 import { SalesComponent } from './sales/sales.component';
 import { HomeComponent } from './home/home.component';
 import { AdminComponent } from './admin/admin.component';
 import { DashboardComponent } from './admin/dashboard/dashboard.component';
-import { QueriesComponent } from './admin/queries/queries.component';
 import { AccountingComponent } from './accounting/accounting.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { SupportComponent } from './support/support.component';
+import { ProfileComponent } from './admin/profile/profile.component';
 
 export const routes: Routes = [
     {
@@ -16,7 +15,8 @@ export const routes: Routes = [
             { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
             { path: 'dashboard', component: DashboardComponent },
             { path: 'settings', component: SettingsComponent },
-            { path: 'support', component: AdminComponent }
+            { path: 'support', component: AdminComponent },
+            { path: 'profile', component: ProfileComponent }
         ]
     },
     { path: 'sales', component: SalesComponent },

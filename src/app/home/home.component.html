@@ -222,25 +222,26 @@
                 </form>
             </div>
         </div>
+
         <!-- Social Media Section -->
-        <section id="social-media" class="social-media-section py-4 text-light pt-5">
+        <section id="social-media" class="social-media-section py-4 pt-5">
             <div class="container text-center">
-                <h3 class="mb-4 animate__animated animate__fadeIn">Síguenos en Redes Sociales</h3>
+                <h3 class="mb-4 animate__animated animate__fadeIn text-light">Síguenos en Redes Sociales</h3>
                 <div class="d-flex justify-content-center gap-3">
                     <a href="https://www.facebook.com" target="_blank"
-                        class="btn btn-outline-light rounded-circle animate__animated animate__fadeIn animate__delay-1s">
+                        class="btn btn-outline-light rounded-circle animate__animated animate__fadeIn animate__delay-1s text-light">
                         <i class="bi bi-facebook fs-4"></i>
                     </a>
                     <a href="https://www.twitter.com" target="_blank"
-                        class="btn btn-outline-light rounded-circle animate__animated animate__fadeIn animate__delay-2s">
+                        class="btn btn-outline-light rounded-circle animate__animated animate__fadeIn animate__delay-2s text-light">
                         <i class="bi bi-twitter fs-4"></i>
                     </a>
                     <a href="https://www.instagram.com" target="_blank"
-                        class="btn btn-outline-light rounded-circle animate__animated animate__fadeIn animate__delay-3s">
+                        class="btn btn-outline-light rounded-circle animate__animated animate__fadeIn animate__delay-3s text-light">
                         <i class="bi bi-instagram fs-4"></i>
                     </a>
                     <a href="https://www.linkedin.com" target="_blank"
-                        class="btn btn-outline-light rounded-circle animate__animated animate__fadeIn animate__delay-4s">
+                        class="btn btn-outline-light rounded-circle animate__animated animate__fadeIn animate__delay-4s text-light">
                         <i class="bi bi-linkedin fs-4"></i>
                     </a>
                 </div>
@@ -257,7 +258,7 @@
 
 
 
-<!-- Banner Section -->
+@if (banner == true) {
 <section style="background: linear-gradient(to right, #011424, #011857)" id="banner"
     class="banner-section d-flex justify-content-center align-items-center text-light py-3 position-fixed top-0 start-0 w-100 z-index-1000 rounded-bottom shadow-lg">
     <div class="container d-flex justify-content-between align-items-center">
@@ -266,37 +267,9 @@
             <p class="mb-0">Consulta nuestros servicios para más información.</p>
         </div>
         <a href="#contact" class="btn btn-light btn-lg ms-3 px-4 py-2 rounded-pill fw-bold">Contacto</a>
-        <button id="close-banner" class="btn btn-transparent btn-light ms-3 p-2 shadow">
-            <i class="bi bi-x fs-2"></i>
+        <button id="close-banner" class="btn btn-transparent btn-light ms-3 p-2 shadow" (click)="banner = false">
+            <span class="rounded-pill">X</span>
         </button>
     </div>
 </section>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const banner = document.getElementById('banner');
-        const closeButton = document.getElementById('close-banner');
-
-        // Function to check scroll position
-        function checkScroll() {
-            const scrollPosition = window.scrollY;
-            const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
-            const scrollPercentage = (scrollPosition / windowHeight) * 500;
-
-            // Hide banner if scrolled more than 10%
-            if (scrollPercentage > 50) {
-                banner.classList.add('hidden');
-            } else {
-                banner.classList.remove('hidden');
-            }
-        }
-
-        // Event listeners
-        closeButton.addEventListener('click', () => {
-            banner.classList.add('hidden');
-        });
-
-        window.addEventListener('scroll', checkScroll);
-    });
-</script>
+}

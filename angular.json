@@ -5,7 +5,12 @@
   "projects": {
     "nerp": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "css",
+          "changeDetection": "OnPush"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -26,9 +31,11 @@
             ],
             "styles": [
               "src/styles.css",
-              "src/assets/css/bootstrap.min.css"
+              "src/assets/css/bootstrap.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "src/assets/js/bootstrap.js"
+            ],
             "server": "src/main.server.ts",
             "prerender": true,
             "ssr": {

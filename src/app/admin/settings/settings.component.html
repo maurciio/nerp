@@ -1,1 +1,187 @@
-<p>settings works!</p>
+<app-navigation />
+<div class="container">
+    <!-- Menú de Configuración -->
+    <div class="row mt-4">
+        <div class="col-md-3 mb-4">
+            <nav class="nav flex-column nav-pills shadow-lg rounded p-3 bg-light">
+                <!-- Usamos *ngFor para iterar sobre items -->
+                @for (item of items; track $index) {
+                <li class="nav-item mb-2">
+                    <a (click)="tab = item.title"
+                        class="nav-link text-center py-2 px-3 btn {{ tab === item.title ? 'active bg-success' : '' }}">
+                        {{ item.label }}
+                    </a>
+                </li>
+                }
+            </nav>
+        </div>
+
+
+        <!-- Contenido de configuración -->
+        <!-- Contenido de Configuración -->
+        <div class="col-md-9">
+            <div class="card shadow-lg p-4">
+                <!-- Configuración General -->
+                <div *ngIf="tab == 'General'" class="container mt-4">
+                    <h5 class="fw-bold text-center mb-4">Configuración General del Sistema</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="systemName" class="form-label">Nombre del Sistema</label>
+                            <input type="text" class="form-control" id="systemName" placeholder="Nombre del ERP">
+                        </div>
+                        <div class="mb-3">
+                            <label for="language" class="form-label">Idioma del Sistema</label>
+                            <select class="form-select" id="language">
+                                <option>Español</option>
+                                <option>Inglés</option>
+                                <option>Portugués</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="timezone" class="form-label">Zona Horaria</label>
+                            <select class="form-select" id="timezone">
+                                <option>GMT-3 (Chile)</option>
+                                <option>GMT-5 (Colombia)</option>
+                                <option>GMT+1 (España)</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success">Guardar cambios</button>
+                    </form>
+                </div>
+
+                <!-- Configuración de Seguridad -->
+                <div *ngIf="tab == 'Seguridad'" class="container mt-4">
+                    <h5 class="fw-bold text-center mb-4">Configuración de Seguridad</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="passwordPolicy" class="form-label">Política de Contraseñas</label>
+                            <select class="form-select" id="passwordPolicy">
+                                <option>Contraseña débil - (de 3 a 6 carácteres)</option>
+                                <option>Contraseña moderada - (de 6 a 12 carácteres)</option>
+                                <option>Contraseña fuerte - (de 6 a 12 carácteres con símbolos)</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="twoFactorAuth" class="form-label">Autenticación de Dos Factores</label>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="twoFactorAuth">
+                                <label class="form-check-label" for="twoFactorAuth">
+                                    Habilitar autenticación de dos factores
+                                </label>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="sessionTimeout" class="form-label">Tiempo de Expiración de Sesión
+                                (minutos)</label>
+                            <input type="number" class="form-control" id="sessionTimeout" value="30">
+                        </div>
+                        <button type="submit" class="btn btn-success">Guardar cambios</button>
+                    </form>
+                </div>
+
+                <!-- Configuración de API -->
+                <div *ngIf="tab == 'API'" class="container mt-4">
+                    <h5 class="fw-bold text-center mb-4">Configuración de la API</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="apiEndpoint" class="form-label">Endpoint de la API</label>
+                            <input type="text" class="form-control" id="apiEndpoint"
+                                placeholder="http://localhost:33440/api/">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apiKey" class="form-label">Clave API</label>
+                            <input type="password" class="form-control" id="apiKey" placeholder="Clave de API">
+                        </div>
+                        <div class="mb-3">
+                            <label for="apiRateLimit" class="form-label">Límite de Solicitudes (por minuto)</label>
+                            <input type="number" class="form-control" id="apiRateLimit" value="1000">
+                        </div>
+                        <button type="submit" class="btn btn-success">Guardar cambios</button>
+                    </form>
+                </div>
+
+                <!-- Configuración de Backups -->
+                <div *ngIf="tab == 'Backup'" class="container mt-4">
+                    <h5 class="fw-bold text-center mb-4">Configuración de Backups</h5>
+                    <form>
+                        <div class="mb-3">
+                            <label for="backupFrequency" class="form-label">Frecuencia de Backups</label>
+                            <select class="form-select" id="backupFrequency">
+                                <option>Diario</option>
+                                <option>Semanal</option>
+                                <option>Mensual</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="backupTime" class="form-label">Hora de Backup</label>
+                            <input type="time" class="form-control" id="backupTime" value="02:00">
+                        </div>
+                        <div class="mb-3">
+                            <label for="backupLocation" class="form-label">Ubicación de Backup</label>
+                            <input type="text" class="form-control" id="backupLocation"
+                                placeholder="Ruta del servidor o almacenamiento en la nube">
+                        </div>
+                        <button type="submit" class="btn btn-success">Guardar cambios</button>
+                    </form>
+                </div>
+
+                <!-- Vista de tablas del sistema (Base de datos) -->
+                <div *ngIf="tab == 'BD'" class="container mt-4">
+                    <h5 class="fw-bold text-center mb-4">Vista de Tablas del Sistema (Base de Datos)</h5>
+
+                    <!-- Contenedor de tarjetas -->
+                    <div class="row">
+                        <ng-container *ngFor="let tabla of tablas; let i = index">
+                            <div class="col-md-4 mb-4">
+                                <div class="card shadow-sm border-light">
+                                    <div class="card-header bg-success text-white d-flex justify-content-between align-items-center"
+                                        (click)="toggleCollapse(i)" style="cursor: pointer;">
+                                        <h6 class="mb-0">{{ tabla.nombre }}</h6>
+                                        <i
+                                            [ngClass]="{'bi bi-chevron-up': !tabla.isCollapsed, 'bi bi-chevron-down': tabla.isCollapsed}"></i>
+                                    </div>
+                                    <div class="collapse" [ngClass]="{'show': !tabla.isCollapsed}">
+                                        <div class="card-body">
+                                            <p><strong>Descripción:</strong> {{ tabla.descripcion }}</p>
+                                            <p><strong>Funciones:</strong></p>
+                                            <ul>
+                                                <li><strong>{{ tabla.funcion }}</strong></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                </div>
+
+
+
+                <!-- Sección de Ayuda -->
+                <div *ngIf="tab == 'Ayuda'" class="container mt-4">
+                    <h5 class="fw-bold text-center mb-4">Centro de Ayuda</h5>
+                    <p>Consulta los manuales y la documentación oficial del sistema para obtener asistencia en el
+                        uso
+                        del ERP.</p>
+
+                    <!-- Botón para ir a la documentación online -->
+                    <a href="https://docs.mierp.com" target="_blank" class="btn btn-secondary mb-3">Ir a la
+                        Documentación</a>
+
+                    <!-- Botón para descargar el Manual de Usuario -->
+                    <div class="d-grid gap-2 d-md-block">
+                        <a href="ruta-al-manual-usuario.pdf" download class="btn btn-info me-2">
+                            Descargar Manual de Usuario
+                        </a>
+
+                        <!-- Botón para descargar el Manual de Uso para Encargados del Sistema -->
+                        <a href="ruta-al-manual-encargados.pdf" download class="btn btn-warning">
+                            Descargar Manual de Uso
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

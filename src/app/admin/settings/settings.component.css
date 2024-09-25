@@ -1,0 +1,12 @@
+.card-header {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.card-header:hover {
+    background-color: #1ecf77; /* Cambia el color al pasar el ratón */
+    color: white;
+}
+
+.card-body {
+    background-color: #f8f9fa; /* Color de fondo del contenido */
+}

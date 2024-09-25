@@ -1,0 +1,114 @@
+<app-navigation></app-navigation>
+
+<div class="container mt-4">
+
+    <div class="container-fluid bg-light p-4 rounded shadow-sm">
+        <div class="row">
+            <!-- Sección del Avatar -->
+            <div class="col-md-3 text-center">
+                <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"
+                    class="img-fluid rounded-circle mb-3" alt="Profile Picture" style="max-width: 150px;">
+                <a href="#" class="btn btn-outline-primary btn-sm">Cambiar Avatar</a>
+            </div>
+
+            <!-- Información del Usuario -->
+            <div class="col-md-9">
+                <h4>Información del Usuario</h4>
+                <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+                    <!-- Cuadros de Información -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Nombre Completo</label>
+                                <input type="text" class="form-control" value="Nombre Apellidos" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>RUT</label>
+                                <input type="text" class="form-control" value="12345678-9" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Correo Electrónico</label>
+                                <input type="email" class="form-control" formControlName="email" name="email">
+                            </div>
+                            <div class="form-group">
+                                <label>Teléfono</label>
+                                <input type="text" class="form-control" formControlName="telefono" value="1234567890">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label>Dirección</label>
+                                <input type="text" class="form-control" value="Dirección del usuario" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Estado</label>
+                                <input type="text" class="form-control" value="Activo" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Área</label>
+                                <input type="text" class="form-control" value="Área del usuario" disabled>
+                            </div>
+                            <div class="form-group">
+                                <label>Sucursal</label>
+                                <input type="text" class="form-control" value="Sucursal asignada" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Opciones de usuario -->
+                    <div class="row mt-3">
+                        <div class="col-sm-6">
+                            <button type="submit" class="btn btn-primary btn-block mb-2">Actualizar
+                                Información</button>
+                        </div>
+                        <div class="col-sm-6 col">
+                            <a href="#" class="btn btn-secondary btn-block mb-2" data-bs-toggle="modal"
+                                data-bs-target="#changePasswordModal">Cambiar Contraseña</a>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal para cambiar la contraseña -->
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changePasswordModalLabel">Cambiar Contraseña</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="changePasswordForm" [formGroup]="formGroupChangePass" (ngSubmit)="onSubmitPass()">
+                    <div class="form-group mb-3">
+                        <label for="currentPassword">Contraseña Actual</label>
+                        <input type="password" class="form-control" id="currentPassword"
+                            placeholder="Ingresa tu contraseña actual" required formControlName="currentPassword" name="currentPassword">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="newPassword">Nueva Contraseña</label>
+                        <input type="password" class="form-control" id="newPassword"
+                            placeholder="Ingresa tu nueva contraseña" required formControlName="newPassword" name="newPassword">
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="confirmPassword">Confirmar Nueva Contraseña</label>
+                        <input type="password" class="form-control" id="confirmPassword"
+                            placeholder="Confirma tu nueva contraseña" required formControlName="confirmPassword" name="confirmPassword">
+                    </div>
+                    <div id="passwordError" class="text-danger" style="display:none;">Las contraseñas no coinciden.
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="savePasswordBtn">Guardar Cambios</button>
+            </div>
+        </div>
+    </div>
+</div>

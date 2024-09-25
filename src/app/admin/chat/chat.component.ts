@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './chat.component.css'
 })
 export class ChatComponent {
-  mostrarChat = true;
+  mostrarChat = false;
   mensajeNuevo: string = '';
   user: string = 'franko';
   mensajes: { emisor: string, texto: string, hora: string }[] = [
