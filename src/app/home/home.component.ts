@@ -9,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   banner: any = true;
+  hola: string = 'hola'
 }
+
